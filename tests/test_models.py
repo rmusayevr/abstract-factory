@@ -1,4 +1,6 @@
-from src.pytemplate.domain.models import City, city_factory, Dish, dish_factory
+from uuid import UUID, uuid4
+
+from src.pytemplate.domain.models import City, city_factory, Dish, dish_factory, Restaurant
 
 
 def test_city_creation():
@@ -27,3 +29,19 @@ def test_dish_factory():
     assert isinstance(dish, Dish)
     assert dish.name == "Pasta"
     assert dish.price == 12.99
+
+
+def test_restaurant_creation():
+    city = city_factory(name="New York", country="USA", population=8398748)
+    dish1 = dish_factory(name="Pasta", price=12.99)
+    dish2 = dish_factory(name="Salad", price=8.99)
+    dishes = [dish1, dish2]
+    uuid = uuid4()
+    restaurant = Restaurant(uuid=uuid, dishes=dishes, city=city)
+    assert restaurant.uuid == uuid
+    assert restaurant.city == city
+    assert restaurant.dishes == dishes
+    assert isinstance(restaurant.uuid, UUID)
+    assert isinstance(restaurant.city, City)
+    assert isinstance(restaurant.dishes, list)
+    assert all(isinstance(dish, Dish) for dish in restaurant.dishes)

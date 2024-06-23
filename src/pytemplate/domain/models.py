@@ -1,4 +1,6 @@
 from dataclasses import dataclass
+from typing import List
+from uuid import UUID
 
 
 @dataclass
@@ -20,3 +22,10 @@ class Dish:
 
 def dish_factory(name: str, price: float) -> Dish:
     return Dish(name=name, price=price)
+
+
+@dataclass
+class Restaurant:
+    uuid: UUID
+    city: City
+    dishes: List[Dish]
