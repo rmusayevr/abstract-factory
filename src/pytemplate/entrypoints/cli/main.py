@@ -24,7 +24,7 @@ def get_dish_input() -> List[Dict]:
     return dishes
 
 
-def main() -> str:
+def main():
     restaurant_registry = {
         "Italian": ItalianRestaurantService,
         "Chinese": ChineseRestaurantService,
