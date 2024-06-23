@@ -1,4 +1,4 @@
-from src.pytemplate.domain.models import City, city_factory
+from src.pytemplate.domain.models import City, city_factory, Dish
 
 
 def test_city_creation():
@@ -14,3 +14,9 @@ def test_city_factory():
     assert city.name == "Tokyo"
     assert city.country == "Japan"
     assert city.population == 13929286
+
+
+def test_dish_creation():
+    dish = Dish(name="Pasta", price=12.99)
+    assert dish.name == "Pasta"
+    assert dish.price == 12.99
