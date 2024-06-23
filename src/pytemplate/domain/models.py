@@ -16,3 +16,7 @@ def city_factory(name: str, country: str, population: int) -> City:
 class Dish:
     name: str
     price: float
+
+
+def dish_factory(name: str, price: float) -> Dish:
+    return Dish(name=name, price=price)

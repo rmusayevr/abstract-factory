@@ -1,4 +1,4 @@
-from src.pytemplate.domain.models import City, city_factory, Dish
+from src.pytemplate.domain.models import City, city_factory, Dish, dish_factory
 
 
 def test_city_creation():
@@ -18,5 +18,12 @@ def test_city_factory():
 
 def test_dish_creation():
     dish = Dish(name="Pasta", price=12.99)
+    assert dish.name == "Pasta"
+    assert dish.price == 12.99
+
+
+def test_dish_factory():
+    dish = dish_factory(name="Pasta", price=12.99)
+    assert isinstance(dish, Dish)
     assert dish.name == "Pasta"
     assert dish.price == 12.99
