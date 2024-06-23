@@ -1,6 +1,6 @@
 from unittest.mock import patch
 
-from src.pytemplate.entrypoints.cli.main import get_city_input, get_dish_input
+from src.pytemplate.entrypoints.cli.main import get_city_input, get_dish_input, main
 
 
 def test_get_city_input():
@@ -15,3 +15,24 @@ def test_get_dish_input():
         result = get_dish_input()
         expected = [{"name": "Spaghetti Carbonara", "price": 15.5}, {"name": "Margherita Pizza", "price": 12.0}]
         assert result == expected
+
+
+@patch("builtins.input", side_effect=["Italian", "Rome", "Italy", "2873000", "Spaghetti Carbonara", "15.5", "yes"])
+def test_main_success(mock_input):
+    expected_output = "Italian restaurant is created successfully!"
+    assert main() == expected_output
+
+
+@patch(
+    "builtins.input",
+    side_effect=["Chinese", "Pekin", "China", "9045000", "Kung Pao Chicken", "25.5", "no", "Sweet and Sour Pork", "12.99", "yes"],
+)
+def test_main_success(mock_input):
+    expected_output = "Chinese restaurant is created successfully!"
+    assert main() == expected_output
+
+
+@patch("builtins.input", side_effect=["French", "Pekin", "China", "9045000", "Kung Pao Chicken", "25.5", "yes"])
+def test_main_invalid_cuisine(mock_input):
+    expected_output = "Failed to create French restaurant."
+    assert main() == expected_output
