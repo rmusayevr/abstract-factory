@@ -18,7 +18,7 @@ def test_get_dish_input():
 
 
 @patch("builtins.input", side_effect=["Italian", "Rome", "Italy", "2873000", "Spaghetti Carbonara", "15.5", "yes"])
-def test_main_success(mock_input):
+def test_main_success_italian(mock_input):
     expected_output = "Italian restaurant is created successfully!"
     assert main() == expected_output
 
@@ -27,7 +27,7 @@ def test_main_success(mock_input):
     "builtins.input",
     side_effect=["Chinese", "Pekin", "China", "9045000", "Kung Pao Chicken", "25.5", "no", "Sweet and Sour Pork", "12.99", "yes"],
 )
-def test_main_success(mock_input):
+def test_main_success_chinese(mock_input):
     expected_output = "Chinese restaurant is created successfully!"
     assert main() == expected_output
 
