@@ -1,4 +1,4 @@
-from typing import Dict, List
+from typing import Dict
 
 from src.pytemplate.service.restaurant import ChineseRestaurantService, ItalianRestaurantService
 from src.pytemplate.use_case.restaurant import restaurant
