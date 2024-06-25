@@ -1,17 +1,15 @@
-from typing import Dict
-
 from src.pytemplate.service.restaurant import ChineseRestaurantService, ItalianRestaurantService
 from src.pytemplate.use_case.restaurant import restaurant
 
 
-def get_city_input() -> Dict:
+def get_city_input() -> dict:
     name = input("Enter city name: ")
     country = input("Enter country: ")
     population = int(input("Enter population: "))
     return {"name": name, "country": country, "population": population}
 
 
-def get_dish_input() -> list[Dict]:
+def get_dish_input() -> list[dict]:
     dishes = []
     while True:
         dish_name = input("Enter dish name: ")
