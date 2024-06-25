@@ -1,5 +1,4 @@
 from dataclasses import dataclass
-from typing import List
 from uuid import UUID, uuid4
 
 
@@ -28,8 +27,8 @@ def dish_factory(name: str, price: float) -> Dish:
 class Restaurant:
     uuid: UUID
     city: City
-    dishes: List[Dish]
+    dishes: list[Dish]
 
 
-def restaurant_factory(city: City, dishes: List[Dish]) -> Restaurant:
+def restaurant_factory(city: City, dishes: list[Dish]) -> Restaurant:
     return Restaurant(uuid=uuid4(), dishes=dishes, city=city)

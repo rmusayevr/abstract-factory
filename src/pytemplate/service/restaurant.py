@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from typing import Any, List
+from typing import Any
 
 from src.pytemplate.domain.models import City, city_factory, Dish, dish_factory, Restaurant, restaurant_factory
 
@@ -15,7 +15,7 @@ class RestaurantService(ABC):
         pass
 
     @abstractmethod
-    def make_restaurant(self, city: City, dishes: List[Dish]) -> Restaurant:
+    def make_restaurant(self, city: City, dishes: list[Dish]) -> Restaurant:
         pass
 
     @abstractmethod
@@ -30,7 +30,7 @@ class ItalianRestaurantService(RestaurantService):
     def make_dish(self, data: dict[str, Any]) -> Dish:
         return dish_factory(name=data["name"], price=data["price"])
 
-    def make_restaurant(self, city: City, dishes: List[Dish]) -> Restaurant:
+    def make_restaurant(self, city: City, dishes: list[Dish]) -> Restaurant:
         return restaurant_factory(city=city, dishes=dishes)
 
     def create(self, data: dict[str, Any]) -> Restaurant:
@@ -48,7 +48,7 @@ class ChineseRestaurantService(RestaurantService):
     def make_dish(self, data: dict[str, Any]) -> Dish:
         return dish_factory(name=data["name"], price=data["price"])
 
-    def make_restaurant(self, city: City, dishes: List[Dish]) -> Restaurant:
+    def make_restaurant(self, city: City, dishes: list[Dish]) -> Restaurant:
         return restaurant_factory(city=city, dishes=dishes)
 
     def create(self, data: dict[str, Any]) -> Restaurant:
