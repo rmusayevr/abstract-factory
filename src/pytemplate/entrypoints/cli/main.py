@@ -11,7 +11,7 @@ def get_city_input() -> Dict:
     return {"name": name, "country": country, "population": population}
 
 
-def get_dish_input() -> List[Dict]:
+def get_dish_input() -> list[Dict]:
     dishes = []
     while True:
         dish_name = input("Enter dish name: ")
