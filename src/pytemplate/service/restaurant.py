@@ -1,26 +1,26 @@
 from abc import ABC, abstractmethod
 from typing import Any
 
-from src.pytemplate.domain.models import City, city_factory, Dish, dish_factory, Restaurant, restaurant_factory
+from pytemplate.domain.models import City, city_factory, Dish, dish_factory, Restaurant, restaurant_factory
 
 
 class RestaurantService(ABC):
 
     @abstractmethod
     def allocate_city(self, data: dict[str, Any]) -> City:
-        pass
+        raise NotImplementedError("This method should be overridden by subclasses")
 
     @abstractmethod
     def make_dish(self, data: dict[str, Any]) -> Dish:
-        pass
+        raise NotImplementedError("This method should be overridden by subclasses")
 
     @abstractmethod
     def make_restaurant(self, city: City, dishes: list[Dish]) -> Restaurant:
-        pass
+        raise NotImplementedError("This method should be overridden by subclasses")
 
     @abstractmethod
     def create(self, data: dict[str, Any]) -> Restaurant:
-        pass
+        raise NotImplementedError("This method should be overridden by subclasses")
 
 
 class ItalianRestaurantService(RestaurantService):

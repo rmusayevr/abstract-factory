@@ -1,6 +1,6 @@
 import pytest
 
-from src.pytemplate.domain.models import Restaurant
+from pytemplate.domain.models import Restaurant
 from src.pytemplate.service.restaurant import ChineseRestaurantService, ItalianRestaurantService
 from src.pytemplate.use_case.restaurant import restaurant
 

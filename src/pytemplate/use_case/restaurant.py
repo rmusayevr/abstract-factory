@@ -1,10 +1,10 @@
-from typing import Any, Type
+from typing import Any
 
 from pytemplate.domain.models import Restaurant
 from pytemplate.service.restaurant import RestaurantService
 
 
-def restaurant(data: dict[str, Any], registry: dict[str, Type[RestaurantService]]) -> Restaurant:
+def restaurant(data: dict[str, Any], registry: dict[str, type[RestaurantService]]) -> Restaurant:
     cuisine = data["cuisine"]
     service_class = registry.get(cuisine)
     if service_class is None:
